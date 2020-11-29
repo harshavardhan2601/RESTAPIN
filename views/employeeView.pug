@@ -1,0 +1,30 @@
+html
+	head
+		include navbar.pug
+		include header.pug
+		title
+	body
+		.container-fluid
+			form(action='#',method='POST')
+				.col-md-12.mt-3
+					.card
+						.card-header
+							h5.card-title  Employee View
+						.card-body
+								.row.mt-3
+									.col-md-4
+										b Type Of Employee:
+										span=''+dataObj.typeofemployee
+									.col-md-4
+										b  Name:
+										span=''+dataObj.ename
+									.col-md-4
+										b Employee Email Id:
+										span=''+dataObj.email
+								.row.mt-3
+									.col-md-4
+										b Cell No:
+										span=''+dataObj.ecellno
+									.col-md-4
+										b Password:
+										span=''+dataObj.epassword

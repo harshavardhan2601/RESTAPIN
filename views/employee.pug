@@ -1,0 +1,99 @@
+html
+	head
+		include navbar.pug
+		include header.pug
+		title
+		style.
+			.errorCSS {
+			border-color: #ff0047 !important;
+			color: #ff0047 !important;
+			}
+	body
+		.container-fluid
+			form(action='/employeedata',name='regis',id='de',method='POST', autocomplete='off')
+				.col-md-12.mt-3
+					.card
+						.card-header
+							h5.card-title Add Employee
+						.card-body
+								.row.mt-3
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Type Of Employee
+											select.custom-select(name='typeofemployee',id="identify",)
+												option(value='', style='color: black') SELECT
+												option(value='GHMC Employee') GHMC Employee
+												option(value='Irregation Employee') Irregation Employee
+												option(value='Metro Employee') Metro Employee
+												option(value='L&T Employee') L&T Employee
+												option(value='Railway Employee') Railway Employee
+												option(value='R.T.C Employee') R.T.C Employee
+									input(type='hidden', name='employ_id')
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Name 
+											input.form-control#fname(type='text', name='ename', maxlength='30') 
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Employee Email Id: 
+											input.form-control#fmail(type='text', name='email', maxlength='30',autocomplete="off")
+								.row.mt-3
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Cell No: 
+											input.form-control#fcell(type='text', name='ecellno', maxlength='30')
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Password: 
+											input.form-control#fpassword(type='password', name='epassword', maxlength='30')
+								.row.mt-3
+									.col-md-11.text-center
+											button.btn.btn-primary(type='submit') Submit
+
+		script.
+			$(document).ready(function(){
+			// Creat User Submit Validation
+			$("form[id='de']").submit(function (e) {
+			// Name Validation
+			var error_fields = [],all_fields = ['#fname','#fmail','#fcell','#fpassword','#identify'];
+
+
+			for(var i=0; i<all_fields.length; i++ ){
+			$(all_fields[i]).removeClass('errorCSS');
+			}
+			if($('#fname').val() == ''){
+			error_fields.push('#fname');
+			}
+			if($('#fmail').val() == ''){
+			error_fields.push('#fmail');
+			}
+			if($('#fcell').val() == ''){
+			error_fields.push('#fcell');
+			}
+			if($('#fpassword').val() == ''){
+			error_fields.push('#fpassword');
+			}
+			if($('#identify').val() == ''){
+			error_fields.push('#identify');
+			}
+			var data=$('#identify').val();
+			console.log(data)
+			console.log('================detele================')
+			//- if ($("input[name='proof']:checked").length < 1) {
+			//- error_fields.push('#type');
+			//- }
+			for(var i=0; i<error_fields.length; i++ ){
+			console.log('Error in:---------:' + error_fields[i]);
+			$(error_fields[i]).addClass('errorCSS');
+			e.preventDefault();
+			}
+			if(error_fields[0]){
+			$(error_fields[0]).focus();
+			}
+			});
+			});

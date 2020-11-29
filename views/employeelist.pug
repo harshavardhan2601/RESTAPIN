@@ -1,0 +1,54 @@
+html
+	include navbar.pug
+	include header.pug
+	title 
+	style.
+		.btn-group-xs > .btn, .btn-xs {
+			padding: .25rem .4rem;
+			font-size: .875rem;
+			line-height: .5;
+			border-radius: .2rem;
+		}
+	script.
+		function deletefun(data){
+			var spl_id=data;
+			console.log(spl_id);
+			$.post('/deleteservice',{spl_id:spl_id},function(data){
+			var result_data=data;
+			console.log(result_data);
+			alert(result_data.msg)
+			window.location.reload();
+			});
+		}
+
+body
+	.container-fluid
+		.row
+			.col-md-12.mt-4
+				.card
+					.card-header
+						h4.card-title Employee List
+							a.btn.btn-primary.btn-sm.float-right(href='/employee') Create employee
+					.card-body
+						.row
+							table.table.table-bordered#employeeList
+								thead
+									tr
+										th  Type Of Employee
+										th   Name
+										th   Email
+										th   Action
+								tbody
+									for employObj in dataObj
+										tr
+											td
+												span=employObj.typeofemployee
+											td
+												span= employObj.ename
+											td
+												span= employObj.email
+											td
+												a.btn.btn-primary.btn-xs.mr-1.mb-2(href='/employeeView/' +employObj._id) View
+												a.btn.btn-primary.btn-xs.mr-1.mb-2(href='/employeeEdit/' +employObj._id) Edit
+												//-a.btn.btn-danger.btn-xs.mb-2.text-white(onclick='deletefun('+employObj._id+')') Delete
+												a.btn.btn-danger.btn-xs.mr-1.mb-2(href='/delete/' +employObj._id) Delete

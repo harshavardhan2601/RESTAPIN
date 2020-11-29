@@ -1,0 +1,39 @@
+html
+	head
+		include header.pug 
+		include navbar.pug
+	body
+		.container-fluid.mt-5
+			.row
+				.offset-md-8.col-md-4.mb-3
+					.input-group.input-group-sm
+						input#myInput.form-control(type="form-control") 
+			.row
+				table.table.table-bordered.bg-light
+					thead(style='background-color:LightSteelBlue')
+						tr
+							th S.No
+							th Surname
+							th First Name
+							th Last Name
+							th Email
+							th mobile Number
+					tbody#myTable
+						for data, index in newSignupObj
+							tr
+								td= index+1
+								td= data.surname
+								td= data.firstname
+								td= data.lastname
+								td= data.email
+								td= data.mobile_number
+		script.
+			$(document).ready(function(){
+			$("#myInput").on("keyup", function() {
+			var value = $(this).val().toLowerCase();
+			$("#myTable tr").filter(function() {
+			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+			});
+			});
+			});
+	

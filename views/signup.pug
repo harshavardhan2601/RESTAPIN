@@ -1,0 +1,121 @@
+html
+	include header.pug
+	head
+		title Signup Page
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+		style.
+			* {
+			margin: 0;
+			padding: 0;
+			}
+			body {
+			font-family: 'Times New Roman';
+			/*background: url('/images/login2.png');
+			background-size: cover;
+			background-attachment: fixed;*/
+			background-color:gray;
+			}
+			.col-md-8 {
+			/*background: rgba(0, 0, 0, 0.5);*/
+			background-color: #3b4652;
+			box-shadow: -1px 1px 50px 10px black;
+			padding: 10px;
+			margin-top: 120px;
+			margin-bottom: 100px;
+			}
+			.label {
+			font-size: 19px;
+			color: white;
+			font-weight: normal;
+			}
+			.form-control {
+			background: transparent;
+			border: 0;
+			border-radius: 0;
+			border-bottom: 2px solid rgba(225, 255, 255, 0.2);
+			font-size: 21px;
+			color: white;
+			padding: 20px;
+			margin-bottom: 30px;
+			}
+			select {
+			background: rgba(225, 255, 255, 0.2);
+			border: 0;
+			border-radius: 0;
+			border-bottom: 2px solid rgba(225, 255, 255, 0.2);
+			font-size: 21px;
+			color: white;
+			padding: 20px;
+			margin-bottom: 30px;
+			}
+			input[type='checkbox'] {
+			height: 15px;
+			width: 15px;
+			}
+			.custom-control-label {
+			font-size: 18px;
+			color: white;
+			}
+			.btn-info {
+			border-bottom: 0px;
+			width: 100px;
+			border-radius: 0px;
+			font-size: 20px;
+			border: 2px solid lightblue;
+			margin-top: 50px;
+			margin-left: 350px;
+			}
+			.errorCSS {
+			border-color: #ff0047 !important;
+			color: #ff0047 !important;
+			}
+
+
+	body
+		.container
+			form(action='/submit',name='reg',id='mec',method='post')
+				.row
+					.col-md-2
+					.col-md-8
+						h1.text-center(style='padding: 10px;color: tomato') Signup Page
+
+						.row
+							label.label.col-md-3.control-label Surname
+							.col-md-9
+								input#sn.form-control(type='text', name='surname', autocomplete='off', placeholder='Surname')
+
+						.row
+							label.label.col-md-3.control-label First Name
+							.col-md-9
+								input#fn.form-control(type='text', name='firstname', autocomplete='off', placeholder='First Name')
+								
+						.row
+							label.label.col-md-3.control-label Last Name
+							.col-md-9
+								input#ln.form-control(type='text', name='lastname', autocomplete='off', placeholder='Last Name')
+								
+						.row
+							label.label.col-md-3.control-label Emailid
+							.col-md-9
+								input#gmail.form-control(type='text', name='email', autocomplete='off', placeholder='Emailid')
+								
+						.row
+							label.label.col-md-3.control-label Password
+							.col-md-9
+								input#pass.form-control(type='text', name='password', autocomplete='off', placeholder='Password')
+								
+						.row
+							label.label.col-md-3.control-label Confirm Password
+							.col-md-9
+								input#cnpw.form-control(type='text', name='confirm', autocomplete='off', placeholder='Confirm Password')
+								
+						.row
+							label.label.col-md-3.control-label Mobile Number
+							.col-md-9
+								input#mn.form-control(type='text', name='mobile_number', autocomplete='off', placeholder='Mobile Number')
+						button.btn.btn-info(type='submit') Submit
+				.col-md-2

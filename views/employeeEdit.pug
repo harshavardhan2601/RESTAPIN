@@ -1,0 +1,76 @@
+html
+	head
+		include navbar.pug
+		include header.pug
+		title
+	body
+		.container-fluid
+			form(action='/employeedata',method='POST')
+				.col-md-12.mt-3
+					.card
+						.card-header
+							h5.card-title Employee Edit
+						.card-body
+								.row.mt-3
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Type Of Employee
+											select.form-control(name="typeofemployee")
+												//- option Select
+												//- option GHMC Employee
+												//- option Irregation Employee
+												//- option Metro Employee
+												//- option L&T Employee
+												//- option Railway Employee
+												//- option R.T.C Employee
+												option(value='select') Select
+												if(dataObj.typeofemployee == 'GHMC Employee')
+													option(value='GHMC Employee',selected='selected') GHMC Employee
+												else
+													option(value='GHMC Employee') GHMC Employee
+												if(dataObj.typeofemployee == 'Irregation Employee')
+													option(value='Irregation Employee',selected='selected') Irregation Employee
+												else
+													option(value='Irregation Employee') Irregation Employee
+												if(dataObj.typeofemployee == 'Metro Employee')
+													option(value='Metro Employee',selected='selected') Metro Employee
+												else
+													option(value='Metro Employee') Metro Employee
+												if(dataObj.typeofemployee == 'L&T Employee')
+													option(value='L&T Employee',selected='selected') L&T Employee
+												else
+													option(value='L&T Employee') L&T Employee
+												if(dataObj.typeofemployee == 'Railway Employee')
+													option(value='Railway Employee',selected='selected') Railway Employee
+												else
+													option(value='Railway Employee') Railway Employee
+												if(dataObj.typeofemployee == 'R.T.C  Employee')
+													option(value='R.T.C  Employee',selected='selected') R.T.C  Employee
+												else
+													option(value='R.T.C  Employee') R.T.C  Employee
+									input(type='hidden', value=dataObj._id, name='employ_id')
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Name 
+											input.form-control(type='text', name='ename', maxlength='30', value=dataObj.ename) 
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Employee Email Id: 
+											input.form-control(type='text', name='email', maxlength='30',autocomplete="off", value=dataObj.email)
+								.row.mt-3            
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Cell No: 
+											input.form-control(type='text', name='ecellno', maxlength='30',, value=dataObj.ecellno)
+									.col-md-4
+										.input-group.input-group-sm
+											.input-group-prepend
+												span.input-group-text Password: 
+											input.form-control(type='text', name='epassword', maxlength='30', value=dataObj.epassword)
+								.row.mt-3
+									.col-md-11.text-center
+											button.btn.btn-primary(type='submit') Submit

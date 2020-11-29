@@ -1,0 +1,63 @@
+html
+	head
+		include header.pug 
+		include navbar.pug
+	b=(newSignupObj)
+	style.
+		* {
+		margin: 0;
+		padding: 0;
+		}
+		.btn-info {
+		border-bottom: 0px;
+		width: 100px;
+		border-radius: 0px;
+		font-size: 20px;
+		border: 2px solid lightblue;
+		margin-top: 50px;
+		margin-left: 350px;
+		}
+		.errorCSS {
+		border-color: #ff0047 !important;
+		color: #ff0047 !important;
+		}
+	body
+		.container.mt-4
+			.row
+				.card.card-body
+					h1.text-center(style='padding: 10px;color: tomato')  Profile
+					.row
+						.col-md-3 
+							b Surname
+						.col-md-9
+							span= newSignupObj[0].surname
+
+					.row
+						.col-md-3 
+							b First Name
+						.col-md-9
+							span= newSignupObj[0].firstname
+							
+					.row
+						.col-md-3 
+							b Last Name
+						.col-md-9
+							span= newSignupObj[0].lastname
+							
+					.row
+						.col-md-3 
+							b Emailid
+						.col-md-9
+							span= newSignupObj[0].email
+							
+					.row
+						.col-md-3 
+							b Password
+						.col-md-9
+							span= newSignupObj[0].password
+							
+					.row
+						.col-md-3 
+							b Mobile Number
+						.col-md-9
+							span= newSignupObj[0].mobile_number
