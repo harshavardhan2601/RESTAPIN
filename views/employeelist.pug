@@ -9,17 +9,6 @@ html
 			line-height: .5;
 			border-radius: .2rem;
 		}
-	script.
-		function deletefun(data){
-			var spl_id=data;
-			console.log(spl_id);
-			$.post('/deleteservice',{spl_id:spl_id},function(data){
-			var result_data=data;
-			console.log(result_data);
-			alert(result_data.msg)
-			window.location.reload();
-			});
-		}
 
 body
 	.container-fluid
