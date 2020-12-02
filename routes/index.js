@@ -110,7 +110,7 @@ router.get('/signup', function (req, res, next) {
 });
 
 /* Post Student Data */
-router.post('/submit', /*isAuthenticated,*/ function (req, res, next) {
+router.post('/submit',  function (req, res, next) {
   try {
     var reqs = req.body;
     var newsignup = {
